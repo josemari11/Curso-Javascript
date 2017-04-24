@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">        
+        <title>Tres en raya</title>
+        <link rel="stylesheet" href="style.css">
+  <script>
+      var contclicks =0;
+      var click=0;
+      var jugador;
+ 
+    function sorteo(){
+            click=Math.ceil(Math.random()*2);
+            if(click == 1){
+                document.getElementById('turno').innerHTML = "<h2>Comienza el jugador <h2><br><img src='img/O.jpg' class='o' width='100px' height='100px'/>";
+            }else{
+                 document.getElementById('turno').innerHTML = "<h2>Comienza el jugador <h2><br><img src='img/X.jpg' class='o' width='100px' height='100px'/>";
+            }
+    }
+    
+          
+      function reset(){
+          for(var i=0;i<3;i++){
+              for(var j=0;j<3;j++){
+                   document.getElementById('casilla'+i+j).innerHTML = "";
+              }
+          }
+           click=Math.ceil(Math.random()*2);
+            if(click == 1){
+                if('turno'!=""){
+                    alert("Casilla ocupada");
+                }
+                document.getElementById('turno').innerHTML = "<h2>Comienza el jugador <h2><br><img src='img/O.jpg' class='o' width='100px' height='100px'/>";
+            }else{
+                 document.getElementById('turno').innerHTML = "<h2>Comienza el jugador <h2><br><img src='img/X.jpg' class='o' width='100px' height='100px'/>";
+            }
+           contclicks =0;
+      }//function reset
+      
+ function seleccionar(a,b) {
+     var posicion=a.toString()+b.toString();        
+      if(contclicks<9) {
+            if(click==0){
+                alert("Por favor dale a sortear para comenzar.");
+            }else if(click==1){//jugador 1
+                document.getElementById('casilla'+posicion).innerHTML = "<img src='img/O.jpg' class='o' width='100px' height='100px'/>";
+                click=2;
+                jugador="Cruz";//turno para cruz
+                contclicks++;
+                    if(//gana jugador 1
+                   
+                  console.log(document.body.casilla00.classList.contains('o')) &&  console.log(document.body.casilla01.classList.contains('o')) && console.log(document.body.casilla02.classList.contains('o'))
+                   /*
+                    "#casilla00".includes("img/O.jpg") && "#casilla01".includes("img/O.jpg") &&  "#casilla02".includes("img/O.jpg")||
+                    "#casilla00".includes("img/O.jpg") && "#casilla01".includes("img/O.jpg") &&  "#casilla02".includes("img/O.jpg")||
+                    "#casilla10".includes("img/O.jpg") && "#casilla11".includes("img/O.jpg") &&  "#casilla12".includes("img/O.jpg")||    
+                    "#casilla20".includes("img/O.jpg") && "#casilla21".includes("img/O.jpg") &&  "#casilla22".includes("img/O.jpg")||  
+                    "#casilla00".includes("img/O.jpg") && "#casilla10".includes("img/O.jpg") &&  "#casilla20".includes("img/O.jpg")||    
+                    "#casilla01".includes("img/O.jpg") && "#casilla11".includes("img/O.jpg") &&  "#casilla21".includes("img/O.jpg")||    
+                    "#casilla02".includes("img/O.jpg") && "#casilla12".includes("img/O.jpg") &&  "#casilla22".includes("img/O.jpg")||    
+                    "#casilla00".includes("img/O.jpg") && "#casilla11".includes("img/O.jpg") &&  "#casilla22".includes("img/O.jpg")||    
+                    "#casilla02".includes("img/O.jpg") && "#casilla11".includes("img/O.jpg") &&  "#casilla20".includes("img/O.jpg")*/
+                        
+                        
+                        /*ClassList*/
+          ){
+              alert("Juego terminado");
+              alert("Ha ganado el jugador Circulo.");
+          }
+
+            }else{//jugador 2
+                document.getElementById('casilla'+posicion).innerHTML = "<img src='img/X.jpg' class='x' width='100px' height='100px'/>";
+                click=1;
+                jugador="Circulo";//turno para circulo
+                contclicks++;
+               
+                     if(//gana jugador 2
+
+                    "#casilla00".includes("img/X.jpg") && "#casilla01".includes("img/X.jpg") &&  "#casilla01".includes("img/X.jpg")||
+                    "#casilla10".includes("img/X.jpg") && "#casilla11".includes("img/X.jpg") &&  "#casilla12".includes("img/X.jpg")||    
+                    "#casilla20".includes("img/X.jpg") && "#casilla21".includes("img/X.jpg") &&  "#casilla22".includes("img/X.jpg")||  
+                    "#casilla00".includes("img/X.jpg") && "#casilla10".includes("img/X.jpg") &&  "#casilla20".includes("img/X.jpg")||    
+                    "#casilla01".includes("img/X.jpg") && "#casilla11".includes("img/X.jpg") &&  "#casilla21".includes("img/X.jpg")||    
+                    "#casilla02".includes("img/X.jpg") && "#casilla12".includes("img/X.jpg") &&  "#casilla22".includes("img/X.jpg")||    
+                    "#casilla00".includes("img/X.jpg") && "#casilla11".includes("img/X.jpg") &&  "#casilla22".includes("img/X.jpg")||    
+                    "#casilla02".includes("img/X.jpg") && "#casilla11".includes("img/X.jpg") &&  "#casilla20".includes("img/X.jpg")
+                  ){
+                      alert("Juego terminado");
+                      alert("Ha ganado el jugador Cruz.");
+                  }
+            }
+            var sumacont=contclicks;
+              document.getElementById("jugador").innerHTML = "<h1>Turno para el jugador " + jugador +"</h1>Jugada número " + contclicks;   
+      }else{
+            alert("Juego terminado. Vacía el tablero.");
+        }//else      
+      }//function sellecionar
+  
+  </script>     
+  </head>
+
+    <body>    
+    <div class="caja">
+      <div id="turno"></div>
+      <div class="derecha"> <input type="button" value="Sortear" onclick="sorteo()">
+      <input type="button" value="Vaciar" onclick="reset()">
+        <h1>Tres en Raya</h1>
+        <table border="1px" width="500px" height="500px">
+             <tr>
+             <td id="casilla00" width="100px" height="100px" onclick="seleccionar(0,0)"></td>
+             <td id="casilla01" width="100px" height="100px" onclick="seleccionar(0,1)"></td>
+             <td id="casilla02" width="100px" height="100px" onclick="seleccionar(0,2)"></td>
+         </tr>
+             <tr>
+             <td id="casilla10" width="100px" height="100px" onclick="seleccionar(1,0)"></td>
+             <td id="casilla11" width="100px" height="100px" onclick="seleccionar(1,1)"></td>
+             <td id="casilla12" width="100px" height="100px" onclick="seleccionar(1,2)"></td>
+         </tr>  
+            <tr>
+             <td id="casilla20" width="100px" height="100px" onclick="seleccionar(2,0)"></td>
+             <td id="casilla21" width="100px" height="100px" onclick="seleccionar(2,1)"></td>
+             <td id="casilla22" width="100px" height="100px" onclick="seleccionar(2,2)"></td>
+         </tr>
+        </table>
+        <p class="white">jugador 1 = Circulo.<br>
+            jugador 2 = Cruz.
+        </p>
+        </div>
+        <div id="jugador"></div>
+        </div>
+    </body>
+    </html>

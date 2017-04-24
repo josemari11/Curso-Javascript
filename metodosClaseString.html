@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script>
+         /*------------- Propiedades  -----------------------------------------------*/
+        document.write("<h3>Propiedades.</h3>");
+        document.write("Hola eso es lo que ves --->");
+        document.write("Hola eso es lo que ves".length);//Devuelve el largo de la cadena contando espacios.
+        
+         /*------------- Métodos -----------------------------------------------*/
+        document.write("<h3>Métodos.</h3>");
+        document.write(" letras y espacios.<br>");
+        document.write("Holavjgd".charAt(4)+"<br>");//Devuelve la posición 5 ya que empieza a contar desde el 0.
+       
+        
+        var var1= "Dónde está la x, busca.";
+        document.write(var1.indexOf("a")+"<br>");//Escribe 12, posicion del caracter 'a'  Empieza por 0.Si está vacía devuelve -1
+       
+        document.write(var1.lastIndexOf("e")+"<br>");//Escribe 6, última posicion del caracter 'e'  Empieza por 0.Si está vacía devuelve -1
+        
+        var texto="Esto es una estructura estática.";
+        console.log(texto.match(/st/g)+"<br>");//Expresión utilizada en la consola solamente.Devuelve ["st", "st", "st"],
+        // si no se pone g solo devuelve "st" una vez y devulve---> ["st", index: 1, input: "Esto es una estructura estática."]
+        
+        document.write(texto.match(/st/g)+"<br>");
+        document.write(texto.match(/st/)+"<br>");
+        
+        var text="Esto es una estructura estática.";
+        document.write(text.replace("Esto","Aquello")+"<br>");
+        
+        document.write(text.search(/una/)+"<br>");//La posición en la que aparece la busqueda por primera vez
+        
+        document.write(text.slice(4,20)+"<br>");//muestra los caracteres desde las dos posiciones.
+     
+        document.write(text.slice(4,-2)+"<br>");//Si se añade negativo empieza a contar desde el final.
+      
+        document.write(text.slice(4)+"<br>");//si no se indica fin coge hasta el final.
+        
+        
+        document.write(text.split(" ")+"<br>");//Divide el array en un array de textos,buscael espacio
+       
+        document.write(text.split(" "),3+"<br>");//no me funciona
+        
+        console.log(text.split(" ")+"<br>");//["Esto", "es", "una", "estructura", "estática."]
+        
+        /*------------- Métodos HTML -----------------------------------------------*/
+        document.write("<h3>Métodos HTML.</h3>"+"<br>");
+     
+        document.write(text.substr(3,10)+"<br>");//si no se indica tamaño toma toda la cadena.
+        
+     
+        document.write(text.toLocaleLowerCase()+"<br>");
+       
+        document.write(text.toUpperCase()+"<br>");
+                
+       
+        var text2="Apartado Principal";
+        document.write(text2.anchor("marca1").bold()+"<br>");//Añade una etiqueta de tipo a al string y rellena el atributo name de la misma con el texto indicado.
+        //<a name="marca1">Apartado Principal</a>
+        
+       
+        document.write(text2.anchor("marca1").bold()+"<br>");//bold() rodea el string con negrita de tipo b y no de tipo strong.
+        
+        +"<br>"
+        document.write(text2.anchor("marca1").fixed()+"<br>");//bold() rodea el string con texto de tipo fijo (tt).
+        
+     
+        document.write(text2.anchor("marca1").italics()+"<br>");//Rodea el string con etiqueta de tipo cursiva.
+        
+       
+        var texto="ir a Google";
+        document.write(texto.link("http://google.com")+"<br>");
+        
+       
+        document.write("Esto es subíndice"+texto.sub()+"<br>");
+        
+       
+        document.write("Esto es un superíndice"+texto.sup()+"<br>");
+        
+        /*------------- Métodos Estáticos -----------------------------------------------*/
+        document.write("<h3>Métodos Estáticos.</h3>"+"<br>");
+        
+        
+        document.write(String.fromCharCode(72,111,108,97));//Imprime carácteres de código ASCII.
+        
+        /*------------- Métodos y propiedades de la clase number. -----------------------------------------------*/
+        document.write("<h3>Métodos y propiedades de la clase number.</h3>"+"<br>");
+      
+        var numero=234578.637462;
+        document.write(numero.toExponential(5));//Convirte números a su formato de notación exponencial.
+        
+       
+        document.write(numero.toFixed(2)+"<br>");//Convierte el número de forma que use un max. de decimales
+        
+      
+        document.write(numero.toPrecision(2)+"<br>");//Equivalente al anterior.Pero usa el formato interno de decimal.
+        
+     
+        document.write(numero.toString()+"<br>");
+    
+        document.write(typeof(numero)+"<br>");
+        document.write(typeof(text2)+"<br>");
+     
+        
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

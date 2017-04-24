@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script>
+        var nota = [7, 8, 4, 9, 5, 6, 7, 8, 4]
+        document.write(typeof(nota) + "<br>");
+        document.write(nota + "<br>");
+        document.write(nota[5] + "<br>");
+        document.write(nota.length + "<br>");
+
+        var nombre2 = [];
+        nombre2[4] = "Marce";
+        nombre2[22] = "Juliana";
+        document.write(nombre2.length + "<br>"); //escribe 23 porque el último definido es el 22 sería como [,,,"nfdgfdng",,,,,,"fgd",,,,"fgdh",,,,]
+
+        var nombre = ["Juan", "Maria Angeles"];
+        document.write(nombre[0] + "<br>");
+        document.write(nombre.length + "<br>");
+
+        /*************Arrays heterogéneos************/
+        var a = [3, 4, "Hola", true, parseInt(Math.random() * 50)];
+        document.write(a + ">> esto es a <br>");
+
+        var b = [3, 4, "Hola", [433, 43, 4]];
+        document.write(b[3] + "<br>");
+        document.write(b[3][1] + "<br>");
+
+        //Al ser un objeto no está de más definirlo como en java creando una constructora >> var a = new Array();
+        //se escribe la primera en mayúsculas Array aunque no es obligatorio
+        var t = new Array(4, 55, 43, 7, 8, 4, 2, 1, 4);
+        document.write(t + "<br>");
+        var t = new Array(3, 4, "Hola", [433, 43, 4]);
+        document.write(t + "<br>");
+        var t = new Array(3, 4, "Hola", new Array(433, 43, 4));
+        document.write(t[3][1] + "<br>");
+        //Sin embargo esta da error ya que de esta manera no se pueden dejar sin definir objetos
+        //var a = new Array(3,4,,4,433,4,,,,34,);
+
+        /************** Añadir y quitar elementos a los arrays *****************/
+        a[a.length] = "nuevoValor";
+        document.write(a + "   >> esto es a añadido<br>");
+
+        //Usando métodos de los Arrays sería
+        a.push("Siguiente valor");
+        document.write(a + "   >> esto es a añadido usando el método push<br>");
+
+        //añdir al principio 
+        a.unshift(4343453535);
+        document.write(a + "   >> esto es a añadido usando el método unshift<br>");
+
+        //quitar el último elemento
+        a.pop();
+        document.write(a + "   >> quitar último elemento, usando el método pop<br>");
+
+        //quitar el primer elemento
+        a.shift();
+        document.write(a + "   >> quitar primer elemento, usando el método shift<br>");
+
+        //quitar elemento de una posición concreta
+        delete a[2];
+        document.write(a + "   >> quitar elemento concreto, usando el método delete<br>");
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

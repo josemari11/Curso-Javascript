@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script>
+       /* var resp=confirm("¿Quieres ir a Goolge?");
+        if(resp==true){
+            location="http://www.google.es";
+        }
+        else{
+            document.write("Vale, nos quedamos aquí");
+        }*/
+        
+       /* var nombre=prompt("Escribe tu nombre","valor por defecto");
+        if(nombre!=null){
+           document.write("Hola "+nombre);
+           }
+        else{
+            document.write("Has cancelado el cuadro");
+        }*/
+        
+        /************typeof y isNaN********************/
+    /*    var x="199";
+        document.write(typeof(x)+"<br>");//escribe string 
+        x=1999;
+        document.write(typeof(x)+"<br>");// escribe number
+        
+        var y="199";
+        var z="hola"
+        document.write(isNaN(y)+"<br>");//devuelve false 
+        x=1999;
+        document.write(isNaN(z)+"<br>");// devuelve true
+        
+       
+        document.write("13"*3 +"<br>");
+        document.write("Hola"*3 +"<br>");
+        document.write("4"+3+"<br>");
+        var c=3;
+        document.write(Number(c)+4+"<br>");
+        var fl="443876.43absd484"
+        document.write(parseInt(fl)+"<br>");
+        document.write(parseFloat(fl)+"<br>");*/
+       
+        var salir = false;//centinela
+        var n;
+        var i=1;
+        while(salir==false && i<=100){
+            n = parseInt(Math.random()*50+1);
+            document.write(n+"<br>");
+            i++;
+            salir = (n % 7 == 0);//centinela, esto si se cumple da true y salimos del bucle
+           
+        } 
+        document.write("<h2>Último número"+ n +"</h2>")
+    </script>
+</head>
+<body>
+
+</body>
+</html>

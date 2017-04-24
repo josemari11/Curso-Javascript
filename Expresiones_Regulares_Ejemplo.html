@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+       <script>
+/*Uso de caracteres especiales para verificar la entrada
+
+En el siguiente ejemplo, se espera que el usuario introduzca un número de teléfono. Cuando el usuario presiona el botón "Check", el script comprueba la validez del número. Si el número es válido (coincide con la secuencia de caracteres especificada por la expresión regular), el script muestra un mensaje de agradecimiento al usuario y confirmación del número. Si el número no es válido, el script informa al usuario que el número de teléfono no es válido.
+
+Dentro de los paréntesis sin captura (?:, La expresión regular busca tres caracteres numéricos \ d {3} OR | un paréntesis izquierdo \ (seguido por tres dígitos \ d {3}, seguido de un paréntesis cerrado \), -capturar paréntesis), seguido de un guión, barra diagonal o punto decimal y cuando se encuentre, recuerde el carácter ([- \ / \.]), Seguido por tres dígitos \ d {3}, seguido por el partido recordado de Un guión, barra diagonal o punto decimal \ 1, seguido por cuatro dígitos \ d {4}.   */
+
+        var rel = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
+           //Espero  (322)-666-4444 , (322).666.4444 , (322)/666/4444 o 333-333-4444
+        function testInfo(phoneInput) {
+            var OK = rel.exec(phoneInput.value);
+            if (!OK)
+                window.alert(RegExp.input + " No es un número de teléfono con código de área!");
+            else
+                window.alert("Gracias, su número de teléfono es " + OK[0]);
+        }
+    </script>
+
+</head>
+
+<body>
+   <form action="#">  
+      <input id="phone"><button onclick="testInfo(document.getElementById('phone'));">Check</button>
+    </form> 
+
+</body>
+</html>

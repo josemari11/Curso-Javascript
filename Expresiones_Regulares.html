@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expresiones Regulares</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script>
+        /*
+                                                                 Ejemplo  que válida un código postal(formado por 5 números del 00000 al 52999)
+                                                                 Los paréntesis ayudan a agrupar esta expresión.
+                                                                        */
+        var cp1 = "49345";
+        var cp2 = "53345";
+        var cp3 = "666666565";
+        var exp = /^((5[012])|([0-4][0-9]))([0-9]{3})$/;
+        document.write(exp.test(cp1) + "<br>"); //escribe true
+        document.write(exp.test(cp2) + "<br>"); //escribe false
+        document.write(exp.test(cp3) + "<br>"); //escribe false
+
+
+
+        /*-------------Métodos de las expresiones regulares.------------------*/
+        //https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions
+
+        //En el siguiente ejemplo, el script usa el método exec para buscar coincidencias en un string.       
+        var myRe = /d(b+)d/g;
+        document.write(myRe + " >>>usa el método exec para buscar coincidencias en un string" + "<br>");
+
+        var myArray = myRe.exec("cdbbdbsbz");
+        document.write(myArray + "<br>");
+
+        // Si no necesita acceder a las propiedades de la expresión regular, una forma alternativa de crear myArray es con este script:
+        var myArray = /d(b+)d/g.exec("cdbbdbsbz");
+        document.write(myArray + "<br>");
+
+        //Si quiere construir la expresión regular desde un String, otra alternativa es:
+       // var myRe = new RegExp("d(b+)d", "g");
+        var myArray = myRe.exec("cdbbdbsbz");
+        document.write(myArray + "<br>");
+
+        //lastIndex >>> La posición de donde iniciar la próxima búsqueda. (Esta propiedad solo es seteada si la expresión utiliza la opción g, 
+        var myRe = /d(b+)d/g;
+        var myArray = myRe.exec("cdbbdbsbz");
+        document.write("The value of lastIndex is " + myRe.lastIndex + "<br>");
+        // El script mostrará:
+
+        //Sin embargo, si el script utilizado es éste:
+
+        var myArray = /d(b+)d/g.exec("cdbbdbsbz");
+        document.write("The value of lastIndex is " + /d(b+)d/g.lastIndex + "<br>");
+        /*Las apariciones de /d(b+)d/g en las dos sentencias son objetos de expresiones regulares distintas y, por lo tanto, tienen diferentes valores en su propiedad lastIndex. Si necesita acceder a las propiedades de una expresión regular creada con un inicializador de objeto, deberá, previamente, asignarla a una variable.*/
+
+
+        /* El siguiente script usa el método replace() para intercambiar palabras en el string. 
+         Para el texto de reemplazo, el script utiliza $1 y $2 en el reemplazo para denotar
+         la primera y segunda coincidencias de subcadena entre ubicadas entre paréntesis.*/
+        //  /(\w+)carácter valido es lo mismo que [a-zA-Z0-9]  \s espacio en blanco /
+        var re = /(\w+)\s(\w+)/;
+        var str = "John Smith";
+        document.write(str + "<br>");
+        var newstr = str.replace(re, "$2, $1");
+        document.write(newstr + "<br>");
+
+        /*Por ejemplo, re = /\w+\s/g crea una expresión regular que busca uno o más caracteres seguidos por un espacio;
+        y busca esta combinación en la totalidad del string.*/
+        var re = /\w+\s/g;
+        var str = "fee fi fo fum";
+        var myArray = str.match(re);
+        document.write(myArray);
+        /*En este ejemplo, puede reemplzar la línea:
+        var re = /\w+\s/g;
+        con:
+        var re = new RegExp("\\w+\\s", "g");*/
+
+        
+        var rel = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
+
+        function testInfo(phoneInput) {
+            var OK = rel.exec(phoneInput.value);
+            if (!OK)
+                window.alert(RegExp.input + " isn't a phone number with area code!");
+            else
+                window.alert("Thanks, your phone number is " + OK[0]);
+        }
+    </script>
+
+</head>
+
+<body>
+   <form action="#">  
+      <input id="phone"><button onclick="testInfo(document.getElementById('phone'));">Check</button>
+    </form> 
+</body>
+</html>
